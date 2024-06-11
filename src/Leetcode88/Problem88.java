@@ -14,17 +14,11 @@ nums1 has a length of m + n, where the first m elements denote the elements that
 and the last n elements are set to 0 and should be ignored. nums2 has a length of n.*/
 
     public static int[] merge(int[] nums1, int m, int[] nums2, int n) {
-        int[] resultNums = new int[n+m];
-        int i;
-        for (i=0; i<m; i++) {
-            resultNums[i] = nums1[i];
+        for (int j = 0, i = m; j < n; j++) {
+            nums1[i] = nums2[j];
+            i++;
         }
-
-        for (int j=0; j<n; j++){
-            resultNums[i+j]= nums2[j];
-        }
-
-        Arrays.sort(resultNums);
-        return resultNums;
+        Arrays.sort(nums1);
+        return nums1;
     }
 }
