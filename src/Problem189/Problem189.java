@@ -4,15 +4,20 @@ public class Problem189 {
     // Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
 
     public static int[] rotate(int[] nums, int k) {
-        int[] temp = new int[k];
+            k %= nums.length;
+            reverse(nums, 0, nums.length-1);
+            reverse(nums, 0, k-1);
+            reverse(nums, k, nums.length-1);
+            return nums;
+        }
 
-        System.arraycopy(nums, nums.length - k + 0, temp, 0, k);
-
-        for (int i=0; i<nums.length - k; i++)
-            nums[nums.length - 1 - i] = nums[nums.length - 1 - k - i];
-
-        System.arraycopy(temp, 0, nums, 0, temp.length);
-
-        return nums;
+        public static void reverse(int[] nums, int start, int end){
+            while(start < end){
+                int temp = nums[start];
+                nums[start] = nums[end];
+                nums[end] = temp;
+                start++;
+                end--;
+            }
+        }
     }
-}
