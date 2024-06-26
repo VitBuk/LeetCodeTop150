@@ -11,12 +11,13 @@ substring
  */
 
     public static int lengthOfLastWord(String s) {
-        String lastWord = "";
-        for (int i=0; i<s.length(); i++) {
-            if (s.charAt(i) == ' ') lastWord = "";
-            else if (lastWord.equals("")) lastWord = s.substring(i);
+        int lastWordLength = 0;
+        for (int i=s.length()-1; i>=0; i--) {
+            if (s.charAt(i) != ' ')
+                lastWordLength++;
+            else if (lastWordLength != 0) break;
         }
 
-        return lastWord.length();
+        return lastWordLength;
     }
 }
