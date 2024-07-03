@@ -1,3 +1,4 @@
+import Problem125.Problem125;
 import Problem13.Problem13;
 import Problem169.Problem169;
 import Problem189.Problem189;
@@ -9,7 +10,7 @@ import Problem88.Problem88;
 
 public class Main {
     public static void main(String[] args) {
-        String s = "   fly me to the moon    ";
-        System.out.println(Problem58.lengthOfLastWord(s));
+        String s = "0P";
+        System.out.println(Problem125.isPalindrome(s));
     }
 }
