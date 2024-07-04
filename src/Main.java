@@ -1,4 +1,5 @@
 import Problem13.Problem13;
+import Problem14.Problem14;
 import Problem169.Problem169;
 import Problem189.Problem189;
 import Problem26.Problem26;
@@ -9,7 +10,7 @@ import Problem88.Problem88;
 
 public class Main {
     public static void main(String[] args) {
-        String s = "   fly me to the moon    ";
-        System.out.println(Problem58.lengthOfLastWord(s));
+        String[] strs = {"flower", "flow", "flight"};
+        System.out.println(Problem14.longestCommonPrefix(strs));
     }
 }
