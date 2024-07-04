@@ -22,4 +22,3 @@ public class Problem14 {
 
         return longestCP;
     }
-}
