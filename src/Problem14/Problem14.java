@@ -7,18 +7,19 @@ public class Problem14 {
 
     public static String longestCommonPrefix(String[] strs) {
         String longestCP = strs[0];
-        for (int i=1; i<strs.length; i++) {
-            for (int j=strs[i].length(); j>0; j--) {
+        for (int i = 1; i < strs.length; i++) {
+            for (int j = strs[i].length(); j > 0; j--) {
                 if (longestCP.length() > j)
-                    longestCP = longestCP.substring(0,j);
+                    longestCP = longestCP.substring(0, j);
 
                 if (strs[i].length() > j)
-                    strs[i] = strs[i].substring(0,j);
+                    strs[i] = strs[i].substring(0, j);
 
-                if (strs[i].charAt(j-1) != longestCP.charAt(j-1))
-                    longestCP = longestCP.substring(0, j-1);
+                if (strs[i].charAt(j - 1) != longestCP.charAt(j - 1))
+                    longestCP = longestCP.substring(0, j - 1);
             }
         }
 
         return longestCP;
     }
+}
