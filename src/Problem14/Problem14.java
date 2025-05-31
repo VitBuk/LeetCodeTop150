@@ -6,20 +6,44 @@ public class Problem14 {
     If there is no common prefix, return an empty string "". */
 
     public static String longestCommonPrefix(String[] strs) {
-        String longestCP = strs[0];
-        for (int i = 1; i < strs.length; i++) {
-            for (int j = strs[i].length(); j > 0; j--) {
-                if (longestCP.length() > j)
-                    longestCP = longestCP.substring(0, j);
+        int shortestString = longestString(strs);
+        int longestPrefix = 0;
 
-                if (strs[i].length() > j)
-                    strs[i] = strs[i].substring(0, j);
+        for (int i=0; i<shortestString; i++) {
+            if (isCommonSymbol(strs, i)) {
+                longestPrefix++;
+            } else break;
+        }
 
-                if (strs[i].charAt(j - 1) != longestCP.charAt(j - 1))
-                    longestCP = longestCP.substring(0, j - 1);
+        return strs[0].substring(0, longestPrefix);
+    }
+
+    private static boolean isCommonSymbol(String[] strs, int position) {
+        char symbol = strs[0].charAt(position);
+        boolean isSame = true;
+        for (String s : strs) {
+            if (position > s.length()) {
+                return false;
+            }
+
+            if (s.charAt(position) != symbol) {
+                return false;
             }
         }
 
-        return longestCP;
+        for (String s: strs) {
+            System.out.println(s.charAt(position));
+        }
+        return true;
+    }
+    private static int longestString(String[] strs) {
+        int shortest = Integer.MAX_VALUE;
+        for (String s : strs) {
+            if (shortest > s.length()) {
+                shortest = s.length();
+            }
+        }
+
+        return shortest;
     }
 }
